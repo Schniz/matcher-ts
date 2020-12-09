@@ -1,4 +1,33 @@
-# TSDX User Guide
+# `matcher-ts`
+
+A simple yet effective type-safe string comparison matching.
+
+👏 No more `switch` blocks.
+🤯 Exhaustive
+
+## Example:
+
+```ts
+import { matcher } from 'matcher-ts';
+
+type Session = { state: 'guest' } | { state: 'authorized', userId: number };
+
+const m = matcher<Session>()('state')({
+  guest() {
+    return `You're unauthorized.`
+  },
+  authorized({ userId }) {
+    return `Hello, user ${userId}`;
+  }
+});
+
+function app() {
+  const resultForGuest = m({ state: 'guest' }); // => `You're unauthorized`
+  const resultForUser = m({ state: 'authorized', userId: 666 }); // => `Hello, user 666`
+}
+```
+
+# Development with TSDX
 
 Congrats! You just saved yourself hours of work by bootstrapping this project with TSDX. Let’s get you oriented with what’s here and how to use it.
 

@@ -3,6 +3,7 @@
 A simple yet effective type-safe string comparison matching.
 
 👏 No more `switch` blocks.
+
 🤯 Exhaustive
 
 ## Example:
